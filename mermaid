@@ -1,0 +1,38 @@
+graph TD
+    %% Users
+    A[User / Browser] --> B[React Frontend (Next.js)]
+    
+    %% Frontend State
+    B --> B1[Redux / Zustand (State Management)]
+    B --> B2[UI Components / TailwindCSS]
+    
+    %% API Layer
+    B --> C[API Gateway / Backend (Node.js / Express)]
+    
+    %% Authentication
+    C --> C1[Auth Service (JWT / OAuth)]
+    
+    %% Business Logic
+    C --> C2[Quiz Service]
+    C --> C3[AI Service (GPT-4 API)]
+    C --> C4[TTS Service (Amazon Polly / Google TTS)]
+    
+    %% Database & Caching
+    C --> D[Database (PostgreSQL / MongoDB)]
+    C --> E[Cache (Redis)]
+    
+    %% Logging & Monitoring
+    C --> F[Logging (Winston / LogRocket)]
+    C --> G[Monitoring (Prometheus / Grafana)]
+    
+    %% AI & TTS Responses
+    C3 --> C
+    C4 --> C
+    
+    %% Cache Flow
+    D --> E
+    E --> C
+    
+    %% Optional: Notifications
+    C --> H[Push Notifications / WebSockets]
+    H --> A
